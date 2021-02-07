@@ -19,13 +19,11 @@
 
 // page/pathname route				countroller to route to.
 $CONTROLLER_ROUTES = array(
-	't1'				=> 'test/test1',
-	't2'				=> 'test/test2',
-	't3'				=> 'test/test3',
 
 	//auth pages
 	'login'				=> 'auth/login',
-	'register'			=> 'auth/register'
+	'register'			=> 'auth/register',
+	'logout'			=> 'auth/logout'
 );
 
 return $CONTROLLER_ROUTES;

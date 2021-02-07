@@ -7,7 +7,6 @@
 
 session_start();
 
-include \system\Loader::includes('functions.php');
 include \system\Loader::includes('date_time_functions.php');
 
 //we initiate the current user as a global.

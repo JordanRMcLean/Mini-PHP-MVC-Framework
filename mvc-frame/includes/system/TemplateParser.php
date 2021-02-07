@@ -9,9 +9,9 @@ use \system\Template as Template;
 
 class TemplateParser
 {
-	/* this is an option when using the template parser independently
-	*  for it to handle errors for you.
-	*  However it is explictily set to false here, as we have an error handler in place.
+	/* Option whether the TemplateParser will handle errors, aka output an error message
+	*  Or false to just throw an Exception to be caught.
+	*  Can be set within construct.
 	*/
 	private $handle_errors = false;
 
@@ -39,6 +39,7 @@ class TemplateParser
 
 	/* Static shortuct for creation of new template.
 	*  Template Includes use this function to create a new template and get its contents.
+	*  So if using a different template class, this will need updating.
 	*/
 	public static function new($file = null) {
 		return new Template($file);
@@ -52,10 +53,11 @@ class TemplateParser
 		}
 	}
 
-
+	/* Compile template with the vars ready for rendering the output.
+	*/
 	public function compile(&$template) {
 		if( !is_object($template) || !($template instanceof Template) ) {
-			return $this->error('Compiler must receive Template object to compile.');
+			return $this->error('TemplateParse must receive Template object.');
 		}
 
 		//removed to allow 're-compiling'
@@ -76,19 +78,18 @@ class TemplateParser
 		ob_start();
 
 		try {
-			//yes. eval is evil... but given that we have set the eval'd content
-			//the only vulnerabilities lie in the author of the template.
-			//presumably the owner of the site.
 
 			//we're going to temporarily remove E_NOTICE for parsing the template.
-			//so people can use vars in the template if they don't exist.
-
+			//otherwise we'd get a notice error for any vars used in the template that haven't been set.
 			$current_error_level = error_reporting();
 			error_reporting($current_error_level & ~E_NOTICE);
 
+			//yes. eval is evil... but given that we have set the eval'd content
+			//the only vulnerabilities are if there is any php in the template.
+			//which is unlikely given templates are used to seperate html and php.
 			eval('?>' . $parsed_content);
 
-			//return the error reporting.
+			//return the error reporting level.
 			error_reporting($current_error_level);
 		}
 		catch(\Throwable $e) {
@@ -107,7 +108,7 @@ class TemplateParser
 				}
 			}
 
-			$message = 'Error compiling template: ' . $e->getMessage() . "\n at line " . $e->getLine() . ': ' . htmlspecialchars($error_line);
+			$message = 'Template Compiling Error: ' . $e->getMessage() . "\n at line " . $e->getLine() . ': ' . htmlspecialchars($error_line);
 			$this->error($message);
 		}
 
@@ -124,7 +125,7 @@ class TemplateParser
 	*/
 	public function parse(&$template) {
 		if( !is_object($template) || !($template instanceof Template) )	{
-			return $this->error('Compiler must receive Template object to compile.');
+			return $this->error('TemplateParser must receive Template object');
 		}
 
 		if($template->is_parsed()) {
@@ -228,6 +229,7 @@ class TemplateParser
 	private function parse_var($block, $top_level = '$vars') {
 
 		if( $this->match('constant', $block) ) {
+			//remove 'C:'
 			return substr($block, 2);
 		}
 
@@ -275,6 +277,8 @@ class TemplateParser
 		$template = self::new($filename);
 		$content = null;
 
+		//if the new template is parsed, then this means
+		//a cached version was loaded and we can use that.
 		if($template->is_parsed()) {
 			$content = $template->get_parsed();
 		}
@@ -468,13 +472,24 @@ class TemplateParser
 
 	private function error($message) {
 		if($this->handle_errors) {
-			//templater handles the errors...
-			//need to write some nice function here to output the error.
-			die($message);
+			$html = "
+			<!DOCTYPE HTML>
+			<html>
+				<head>
+					<title>Template Error</title>
+					<meta charset=\"utf-8\" />
+				</head>
+				<body>
+				<h3>Fatal Template Error</h3>
+				<p>$message</p>
+				</body>
+			</html>";
+
+			die($html);
 		}
 		else {
 			//templater doesn't handle errors so throw an exception and let another handler sort it.
-			throw new \ErrorException($message);
+			throw new \Exception($message);
 		}
 	}
 };

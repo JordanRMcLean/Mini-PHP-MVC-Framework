@@ -20,16 +20,11 @@ class CONFIG {
 	*   DATABASE
 	*  -----------------------
 	*/
-	const DATABASE_HOST = 'jordmclean97375.ipagemysql.com';
+	const DATABASE_HOST = 'myserver.mysql.com';
 	const DATABASE_NAME = 'mvc_framework';
 	const DATABASE_USERNAME = 'my_db_user';
-	const DATABASE_PASSWORD = 'Mydbpassword99!';
+	const DATABASE_PASSWORD = 'myDBpassword99!';
 
-	/*
-	* "page size" is default how man records will be returned for a page of records.
-	* This is used by the model for easy page management.
-	*/
-	const DATABASE_PAGE_SIZE = 25;
 
 	/*
 	* Format of stored dates in the DB. For MySQL this is Y-m-d
@@ -72,7 +67,7 @@ class CONFIG {
 	/*
 	* bog standard debug setting. Turn on to output more helpful errors.
 	*/
-	const DEBUG = true;
+	const DEBUG = false;
 
 	/*
 	* A message safe to output to general public for when there is an error and DEBUG is turned off.
@@ -107,10 +102,10 @@ class CONFIG {
 
 	/*
 	* How long in seconds to cache compiled templates for before they are considered too old.
-	* 600 = 10 mins
+	* 600 = 10 mins, 300 = 5 mins
 	* Set to 0 to disable caching. Automatically disabled if DEBUG is on.
 	*/
-	const TEMPLATE_CACHE_TIME = 1;
+	const TEMPLATE_CACHE_TIME = 300;
 
 
 

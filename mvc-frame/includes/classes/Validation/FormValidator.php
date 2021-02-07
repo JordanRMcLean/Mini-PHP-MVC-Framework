@@ -1,6 +1,6 @@
 <?php
 
-/*  Class to validate multiple ValidationValue or InputValue objects.
+/*  Class to validate multiple ValidationValue objects.
 *   Errors are formatted using ValidationErrors class.
 */
 

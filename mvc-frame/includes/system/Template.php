@@ -2,17 +2,16 @@
 
 namespace system;
 
-
-//Define an interface for templates as all these methods are required by the parser.
+//Interface required for the TemplateParser to manage a template.
 interface TemplateInterface {
-	public function set($name, $value);
-	public function set_loop($name, $values);
 	public function set_content($content);
 	public function get_content();
 	public function get_vars();
+
 	public function set_compiled($content);
 	public function get_compiled();
 	public function is_compiled();
+
 	public function set_parsed($content);
 	public function get_parsed();
 	public function is_parsed();
@@ -21,11 +20,39 @@ interface TemplateInterface {
 
 class Template implements TemplateInterface {
 
+/* --------------------------------------
+*  -------------- OPTIONS ---------------
+*  -------------------------------------- */
+
 	/* Template directory.
-	*  Should be set directly here normally
-	*  but edited to be set dynamically in the construct.
+	*  Can be changed statically during execution, for alternative templates
+	*  Use Template::set_directory() to change.
+	*  (e.g /ajax-templates or /mobile-templates )
 	*/
 	protected static $template_directory;
+
+	/* Expiry time of templates in seconds.
+	*  0 to disable caching.
+	*/
+	private $max_cache_age = \CONFIG::TEMPLATE_CACHE_TIME;
+
+	/* Option if vars should be overwritten if using same name
+	*/
+	private $overwrite_vars = true;
+
+	/* This will be appended to filenames to save yourself some typing.
+	*  If using various file types, leave this an empty string.
+	*  Parser can parse any text file; XML/CSS/JS and so on.
+	*/
+	private $file_extension = '';
+
+/* --------------------------------------
+*  ----------- END OF OPTIONS -----------
+*  -------------------------------------- */
+
+
+
+
 
 	/* Directory where cached parsed templates are stored.
 	* This is created automatically within the template directory
@@ -33,15 +60,11 @@ class Template implements TemplateInterface {
 	*/
 	protected static $cache_directory;
 
-	/* Expiry time of templates in seconds.
-	*/
-	private $max_cache_age = \CONFIG::TEMPLATE_CACHE_TIME;
-
 	/* original filename provided
 	*/
 	private $filename = '';
 
-	/* FUll filename with directory included.
+	/* Full filename with directory included.
 	*/
 	private $filename_full = '';
 
@@ -73,10 +96,6 @@ class Template implements TemplateInterface {
 	*/
 	private $vars = array();
 
-	/* Option if vars should be overwritten if using same name
-	*/
-	public $overwrite_vars = true;
-
 	/* will store templates we've loaded this execution, to prevent double loading.
 	*/
 	static $template_store = array();
@@ -87,18 +106,19 @@ class Template implements TemplateInterface {
 	*/
 	static public function set_directory($dir) {
 		self::$template_directory = preg_replace('#/$#', '', $dir);
-		self::$cache_directory = self::$template_directory . '/cached';
+		self::$cache_directory = self::$template_directory . '/parsed-cache';
 	}
 
 
 	/* construct will load template file if provided.
 	*  If not, will need to load manually using load method before parsing.
+	*  This allows for setting of vars etc before loading a specific template.
 	*/
-	function __construct($templateFile = false) {
+	function __construct($template_file = null) {
 
-		//check if template directory has been set.
-		if( !isset(self::$template_directory) ) {
-			self::set_directory('../views');
+		//safety fix of the template directory trailing slash.
+		if( isset(self::$template_directory) ) {
+			self::set_directory(self::$template_directory);
 		}
 
 		//check if the cache directory needs creating.
@@ -109,27 +129,26 @@ class Template implements TemplateInterface {
 		}
 
 		//finally if a template has been specified load it.
-		if($templateFile) {
-			$this->load($templateFile);
+		if( $template_file ) {
+			$this->load($template_file);
 		}
 	}
+
 
 	/* Load a template file.
 	*  Will load the parsed version if it exists, to be able to skip parse step.
 	*/
-	public function load(string $templateFile) {
+	public function load(string $template_file) {
 
 		//loading a new template so must reset these flags.
 		$this->parsed = false;
 		$this->compiled = false;
 
-		$this->filename = $templateFile;
-		$this->filename_cache = 'parsed_' . str_replace('/', '_', str_replace('\\', '_', $templateFile));
-		$this->filename_full = self::$template_directory . '/' . $templateFile;
+		$this->set_filenames($template_file);
 
 		//first check if has been loaded already.
-		if( isset(self::$template_store[$templateFile]) ) {
-			return $this->set_content(self::$template_store[$templateFile]);
+		if( isset(self::$template_store[$this->filename]) ) {
+			return $this->set_content(self::$template_store[$this->filename]);
 		}
 
 		//then check for a parsed version.
@@ -143,7 +162,21 @@ class Template implements TemplateInterface {
 			return $this->set_content( file_get_contents($this->filename_full) );
 		}
 
-		throw new \Exception("Could not find Template file [$templateFile]");
+		throw new \Exception('Template Error: Could not find Template file [' . $this->filename . ']');
+	}
+
+	/*
+	*  Sets our variations of the filename. Wrapped here for consistency.
+	*/
+	private function set_filenames($template_file) {
+
+		if( $this->file_extension ) {
+			$template_file .= $this->file_extension;
+		}
+
+		$this->filename = $template_file;
+		$this->filename_cache = 'parsed_' . str_replace('/', '_', str_replace('\\', '_', $template_file));
+		$this->filename_full = self::$template_directory . '/' . $template_file;
 	}
 
 
@@ -203,6 +236,17 @@ class Template implements TemplateInterface {
 	 * if overwrite_vars is on.
 	*/
 	private function _assign_var($name, $value) {
+		//if value is an array then we set them all under the namespace of $name
+		if( is_array($value) ) {
+			foreach($value as $n => $v) {
+				if(is_string($n)) {
+					$this->_assign_nested_vars("$name:" . strtoupper($n), $v);
+				}
+			}
+
+			return;
+		}
+
 		if( !isset($this->vars[$name]) || $this->overwrite_vars ) {
 			if( is_int( strpos($name, ':') ) ) {
 				$this->_assign_nested_vars($name, $value);
@@ -316,7 +360,7 @@ class Template implements TemplateInterface {
 	}
 
 	public function get_parsed() {
-		return $this->parsed_content;
+		return $this->parsed ? $this->parsed_content : '';
 	}
 
 	public function is_parsed() {
@@ -329,24 +373,11 @@ class Template implements TemplateInterface {
 	}
 
 	public function get_compiled() {
-		return $this->compiled_content;
+		return $this->compiled ? $this->compiled_content : '';
 	}
 
 	public function is_compiled() {
 		return $this->compiled;
-	}
-
-	public function filename($type = null) {
-		switch($type) {
-			case 'full' :
-			case 'f' :
-				return $this->filename_full;
-			case 'cache' :
-			case 'c' :
-				return $this->filename_cache;
-			default :
-				return $this->filename;
-		}
 	}
 
 }

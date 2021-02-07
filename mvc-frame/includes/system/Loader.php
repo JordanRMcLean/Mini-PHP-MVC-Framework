@@ -46,7 +46,7 @@ class Loader {
 
 		foreach($folders as $folder) {
 			$var_name = $folder . '_path';
-			self::$$var_name = self::remove_slashes( $paths[$folder] ?: "../$folder" );
+			self::$$var_name = self::remove_slashes( isset($paths[$folder]) ? $paths[$folder] : "../$folder" );
 		}
 
 		//classes folder a little different a resides in includes.

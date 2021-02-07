@@ -10,6 +10,7 @@
 	<br>
 	<h3>Database connection was {IF: DB_CONNECT_SUCCESS == 'hello'}successful{ELSE:}unsuccessful{/IF}</h3>
 	<br>
+	<a href="{C:INDEX_ROOT}install">Visit Install Page</a>
 
 	{IF: DEBUG_MODE}<h3>{DB_CONNECT_ERROR}</h3>{/IF}
 
