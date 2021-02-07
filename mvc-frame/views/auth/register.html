@@ -1,0 +1,34 @@
+{INCLUDE: header.html}
+
+			<header>
+				<h2>Register</h2>
+			</header>
+
+			<section>
+			<form method="post" action="{FORM_ACTION}">
+				<div class="row">
+					<p>{ERROR_MESSAGE}</p>
+				</div>
+				<div class="row">
+					<div class="col-12-mobile col-12">
+						<label>Email Address</label>
+						<input type="email" name="email" {IF: ATTEMPTED_EMAIL}value="{ATTEMPTED_EMAIL}"{/IF} required/>
+					</div>
+					<div class="col-12-mobile col-6">
+						<label>Password</label>
+						<input type="password" name="password" required/>
+					</div>
+					<div class="col-12-mobile col-6">
+						<label>Re-type Password</label>
+						<input type="password" name="verify_password" required/>
+					</div>
+					<div class="col-12">
+						<input type="submit" value="Register" name="submit" />
+					</div>
+				</div>
+			</form>
+			</section>
+
+
+
+{INCLUDE: footer.html}

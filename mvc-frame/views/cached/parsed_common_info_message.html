@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<script type="text/javascript" src="/asses/js/main.js"></script>
+	</head>
+	<body>
+	<div class="main">
+
+
+		<div class="container <?php echo isset($vars['INFO_BOX_CLASSNAME']) ? $vars['INFO_BOX_CLASSNAME'] : '' ?>">
+			<header>
+				<h2><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></h2>
+			</header>
+			<p><?php echo isset($vars['INFO_BOX_MESSAGE']) ? $vars['INFO_BOX_MESSAGE'] : '' ?></p>
+			<?php if ($vars['INFO_BOX_LINK_URL'] && $vars['INFO_BOX_LINK_TEXT']): ?>
+				<br>
+				<br>
+				<p>
+					<a href="<?php echo isset($vars['INFO_BOX_LINK_URL']) ? $vars['INFO_BOX_LINK_URL'] : '' ?>"><?php echo isset($vars['INFO_BOX_LINK_TEXT']) ? $vars['INFO_BOX_LINK_TEXT'] : '' ?></a>
+				</p>
+			<?php endif; ?>
+		</div>
+
+
+</div>
+<?php if ($vars['DEBUG_MODE']): ?>
+	<span style="display:none">Queries: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?></span>
+	<script>console.log('SQL QUERIES: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?>');</script>
+<?php endif; ?>
+</body>
+</html>
+

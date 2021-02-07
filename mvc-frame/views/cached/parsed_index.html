@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<script type="text/javascript" src="/asses/js/main.js"></script>
+	</head>
+	<body>
+	<div class="main">
+
+<section>
+<div class="container">
+	<header>
+		<h2><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></h2>
+	</header>
+
+	<h3><?php echo isset($vars['WELCOME_MESSAGE']) ? $vars['WELCOME_MESSAGE'] : '' ?></h3>
+
+
+	<h3>Database connection was <?php if ($vars['DB_CONNECT_SUCCESS'] == 'hello'): ?>successful<?php else: ?>unsuccessful<?php endif; ?></h3>
+	<br>
+	<?php if ($vars['DEBUG_MODE']): ?><h3><?php echo isset($vars['DB_CONNECT_ERROR']) ? $vars['DB_CONNECT_ERROR'] : '' ?></h3><?php endif; ?>
+
+	<?php if ($vars['LOGGED_IN']): ?>
+	<div class="row">
+		Logged in as: <?php echo isset($vars['USER_EMAIL']) ? $vars['USER_EMAIL'] : '' ?>
+	</div>
+	<?php endif; ?>
+	
+</div>
+</section>
+
+</div>
+<?php if ($vars['DEBUG_MODE']): ?>
+	<span style="display:none">Queries: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?></span>
+	<script>console.log('SQL QUERIES: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?>');</script>
+<?php endif; ?>
+</body>
+</html>
+

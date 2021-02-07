@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<script type="text/javascript" src="/asses/js/main.js"></script>
+	</head>
+	<body>
+	<div class="main">
+
+
+			<?php if ($vars['LOGGED_IN']): ?>
+				<header>
+					<h2>Welcome <?php echo isset($vars['USER_EMAIL']) ? $vars['USER_EMAIL'] : '' ?>!</h2>
+				</header>
+				<p><a href="<?php if(defined('INDEX_ROOT')): echo INDEX_ROOT; endif; ?>">Click here to go to Index.</a></p>
+			<?php else: ?>
+
+				<header>
+					<h2>Log In</h2>
+				</header>
+
+				<p><?php echo isset($vars['ERROR_MESSAGE']) ? $vars['ERROR_MESSAGE'] : '' ?></p>
+				<form method="post" action="<?php echo isset($vars['FORM_ACTION']) ? $vars['FORM_ACTION'] : '' ?>">
+					<div class="row">
+						<div class="col-12">
+							<label>Email</label>
+							<input type="text" name="email"<?php if ($vars['ATTEMPTED_EMAIL']): ?> value="<?php echo isset($vars['ATTEMPTED_EMAIL']) ? $vars['ATTEMPTED_EMAIL'] : '' ?>"<?php endif; ?> required/>
+						</div>
+						<div class="col-12">
+							<label>Password</label>
+							<input type="password" name="password" required/>
+						</div>
+						<div class="col-12">
+							<input name="submit" type="submit" value="Log In" />
+						</div>
+					</div>
+				</form>
+			<?php endif; ?>
+
+
+</div>
+<?php if ($vars['DEBUG_MODE']): ?>
+	<span style="display:none">Queries: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?></span>
+	<script>console.log('SQL QUERIES: <?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?>');</script>
+<?php endif; ?>
+</body>
+</html>
+

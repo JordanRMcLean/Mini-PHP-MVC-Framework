@@ -1,0 +1,10 @@
+
+
+- generated css and js
+- lang
+- remove db credentials after testing.
+- document everything using phpDoc
+- admin directory for potential admin set up.
+   - permission page.
+
+- upload validation to github.

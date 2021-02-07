@@ -1,0 +1,335 @@
+
+[2021-01-10 07:56:50] - Class 'system\Exception' not found
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 07:57:21] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:03:27] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:03:27] - [8] Undefined index: file
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-10 08:05:57] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:05:57] - [8] Undefined index: file
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-10 08:09:52] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:11:17] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:12:19] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:13:07] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:13:09] - Invalid Class/Controller Called: Template
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:34:10] - Invalid Class/Controller Called: Loader
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-10 08:36:28] - Argument 1 passed to system\TemplateParser::parse() must be an instance of Template, object given, called in /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/index.php on line 34
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 118
+
+[2021-01-10 08:36:57] - Argument 1 passed to system\TemplateParser::parse() must be an instance of Template, object given, called in /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/index.php on line 34
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 118
+
+[2021-01-10 08:37:52] - Argument 1 passed to system\TemplateParser::parse() must be an instance of Template, object given, called in /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/index.php on line 34
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 118
+
+[2021-01-10 08:37:59] - Compiler must receive Template object to compile.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 111
+
+[2021-01-10 08:39:41] - Compiler must receive Template object to compile.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 104
+
+[2021-01-10 09:08:06] - [8] Undefined index: vars_match
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-10 09:08:35] - Call to undefined method system\TemplateParser::parse_output_block()
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 166
+
+[2021-01-10 10:31:50] - [8] Undefined variable: stripped_condition
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-10 10:32:07] - [2] in_array() expects parameter 2 to be array, string given
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-11 09:52:31] - Call to undefined method system\Request::run()
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/index.php
+Line: 42
+
+[2021-01-11 09:53:18] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 458
+
+[2021-01-11 09:54:30] - [8] Undefined offset: 39
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-11 09:57:23] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 458
+
+[2021-01-11 10:02:37] - [8] Uninitialized string offset: 38
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-11 10:02:47] - [8] Uninitialized string offset: 38
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-11 10:04:17] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 467
+
+[2021-01-11 10:05:25] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 467
+
+[2021-01-11 10:06:12] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 472
+
+[2021-01-11 10:06:23] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 472
+
+[2021-01-11 10:07:14] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39<pre>: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?></pre>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 468
+
+[2021-01-11 10:07:17] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39<pre>: 		<?php if ($users_loop['TEST_CONDITION'] == 'something' && (VAR !== 5 && $users_posts_loop['TEST'] == 1)): ?></pre>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 468
+
+[2021-01-11 10:08:10] - Error compiling template: syntax error, unexpected 'VAR' (T_VAR)
+ at line 39: 		&lt;?php if ($users_loop['TEST_CONDITION'] == 'something' &amp;&amp; (VAR !== 5 &amp;&amp; $users_posts_loop['TEST'] == 1)): ?&gt;
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 468
+
+[2021-01-11 10:10:38] - Error compiling template: syntax error, unexpected 'endforeach' (T_ENDFOREACH), expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF)
+ at line 41: 	&lt;br&gt;
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 467
+
+[2021-01-11 10:11:30] - [2] Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP)
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-11 10:14:16] - Error compiling template: syntax error, unexpected ':'
+ at line 58: 	&lt;span style=&quot;display:none&quot;&gt;Queries: &lt;?php echo isset($vars['SQL_QUERIES']) ? $vars['SQL_QUERIES'] : '' ?&gt;&lt;/span&gt;
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/TemplateParser.php
+Line: 467
+
+[2021-01-11 10:16:52] - [2] Use of undefined constant DEBUG - assumed 'DEBUG' (this will throw an Error in a future version of PHP)
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 05:02:13] - Invalid Class/Controller Called: controllers\Controller
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-12 05:03:29] - [2] file_put_contents(views/cached/parsed_index.html): failed to open stream: No such file or directory
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 05:07:07] - [8] Undefined index: AUTH_ERROR_MESSAGE
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 05:24:09] - [8] Undefined index: AUTH_ERROR_MESSAGE
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 05:24:39] - [8] Undefined index: AUTH_ERROR_MESSAGE
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 05:49:20] - [8] Undefined index: AUTH_ERROR_MESSAGE
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 58
+
+[2021-01-12 06:02:09] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:03:39] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:06:24] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:08:57] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:09:01] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:11:22] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:13:05] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:13:06] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:16:32] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:16:33] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-12 06:27:45] - No template file defined for controller.
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/controllers/Controller.php
+Line: 137
+
+[2021-01-15 07:21:21] - Could not find Template file [error/404.html]
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Template.php
+Line: 142
+
+[2021-01-15 08:28:41] - Call to undefined function models\Model()
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/public/install/controllers/IndexController.php
+Line: 51
+
+[2021-01-15 08:47:55] - [2] include(../install_sql.php): failed to open stream: No such file or directory
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59
+
+[2021-01-15 08:51:29] - [2] include(../install_sql.php): failed to open stream: No such file or directory
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59
+
+[2021-01-19 12:18:16] - Call to undefined method models\Sessions::current_user()
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/common.php
+Line: 15
+
+[2021-01-24 03:47:53] - <br><br>SQL Model Error: <br>
+			------------------------------------
+			Attempted Query with no table or database connection. <br>
+			------------------------------------ <br>
+			Last Query: SELECT sessions.* FROM sessions WHERE session_id = :sessionid1 AND session_login_time >= (NOW() - INTERVAL 7 DAY) LIMIT 0, 1 <br>
+			Last Result Count: <br>
+			<br>
+			------------------------------------ <br>
+			Table: sessions <br>
+			Fields: sessions.* <br>
+			Where clauses: AND session_id = :sessionid1, AND session_login_time >= (NOW() - INTERVAL 7 DAY) <br>
+			Joined Tables:  <br>
+			Ordering:   <br>
+			Limit: 0, 1 <br>
+			SQL Variables: :sessionid1 = 9e41d3c30af41d0536edbc28c4ee9311,  <br><br>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/models/Model.php
+Line: 675
+
+[2021-01-24 05:17:56] - <br><br>SQL Model Error: <br>
+			------------------------------------
+			Attempted Query with no table or database connection. <br>
+			------------------------------------ <br>
+			Last Query: SELECT sessions.* FROM sessions WHERE session_id = :sessionid1 AND session_login_time >= (NOW() - INTERVAL 7 DAY) LIMIT 0, 1 <br>
+			Last Result Count: <br>
+			<br>
+			------------------------------------ <br>
+			Table: sessions <br>
+			Fields: sessions.* <br>
+			Where clauses: AND session_id = :sessionid1, AND session_login_time >= (NOW() - INTERVAL 7 DAY) <br>
+			Joined Tables:  <br>
+			Ordering:   <br>
+			Limit: 0, 1 <br>
+			SQL Variables: :sessionid1 = 9e41d3c30af41d0536edbc28c4ee9311,  <br><br>
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/models/Model.php
+Line: 675
+
+[2021-01-24 05:19:47] - syntax error, unexpected 'filter' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 144
+
+[2021-01-24 05:20:37] - Invalid rule provided
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 44
+
+[2021-01-24 05:21:57] - Invalid rule provided [alpha]
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 44
+
+[2021-01-24 05:22:13] - Invalid rule provided [is_alpha]
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 44
+
+[2021-01-24 05:22:49] - [2] array_slice() expects parameter 1 to be array, int given
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59
+
+[2021-01-24 05:23:27] - Invalid rule provided [is_alpha]
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 72
+
+[2021-01-24 05:29:14] - syntax error, unexpected ''contains_special_char'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/PasswordValue.php
+Line: 16
+
+[2021-01-24 05:29:29] - [2] preg_match(): Compilation failed: range out of order in character class at offset 16
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59
+
+[2021-01-24 05:30:31] - Invalid rule provided [0]
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/classes/Validation/ValidationValue.php
+Line: 72
+
+[2021-01-24 05:31:44] - [2] preg_match() expects at least 2 parameters, 1 given
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59
+
+[2021-01-25 10:31:47] - Invalid Class/Controller Called: controllers\ValidationErrors
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/Loader.php
+Line: 158
+
+[2021-01-25 10:32:22] - [2] sprintf(): Too few arguments
+File: /Users/jordanmclean/WebDev/Github Projects/MVC/mvc-frame/includes/system/ExceptionHandler.php
+Line: 59

@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></title>
+
+	<style type="text/css">
+		body {
+			background: #EEE;
+			color: #555;
+			font-family: sans-serif;
+		}
+		div {
+			width: 70%;
+			margin-left: 15%;
+			text-align: center;
+			margin-top: 20px;
+			border: solid 1px #999;
+			padding: 20px 0;
+		}
+		input {
+			width: 50%;
+			margin: 15px;
+			padding: 10px 2px;
+			display: block;
+			margin-left: 25%;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<header>
+		<h2><?php echo isset($vars['PAGE_TITLE']) ? $vars['PAGE_TITLE'] : '' ?></h2>
+	</header>
+
+	<div>
+		<h2>Database</h2>
+		<h3>Database connection: <?php if ($vars['DB_CONNECT']): ?>successful<?php else: ?>unsuccessful<?php endif; ?></h3>
+		<?php if ($vars['DEBUG_MODE']  && $vars['DB_CONNECT_ERROR']): ?><h3>Database error: <?php echo isset($vars['DB_CONNECT_ERROR']) ? $vars['DB_CONNECT_ERROR'] : '' ?></h3><?php endif; ?>
+	</div>
+
+	<div>
+		<h2>Auth</h2>
+		<p>Basic auth system with email log in and session storage.</p>
+
+		<?php if ($vars['AUTH_ERROR_MESSAGE']): ?><h3 style="color:red"><?php echo isset($vars['AUTH_ERROR_MESSAGE']) ? $vars['AUTH_ERROR_MESSAGE'] : '' ?></h3><?php endif; ?>
+
+		<h3>Sessions table: <?php if (!$vars['SESSIONS_TABLE_INSTALLED']): ?>not <?php endif; ?>installed.</h3>
+		<h3>Users table: <?php if (!$vars['USERS_TABLE_INSTALLED']): ?>not <?php endif; ?>installed.</h3>
+
+		<?php if (!$vars['SESSIONS_TABLE_INSTALLED'] && !$vars['USERS_TABLE_INSTALLED']): ?>
+			<form method="post" action="<?php echo isset($vars['AUTH_INSTALL_URL']) ? $vars['AUTH_INSTALL_URL'] : '' ?>">
+			Admin Email, doesn't have to be real, just used to log in to admin account: <input type="text" name="admin-email" />
+			<br>
+			Admin password, can be anything other than empty, no limitations: <input type="text" name="admin-pass" />
+			<br>
+			<input type="submit" name="submit" value="Install" />
+			</form>
+		<?php endif; ?>
+	</div>
+
+	<div>
+		<h2>Permissions</h2>
+		<p>Basic permission system with permission roles defined with allowed actions</p>
+
+		<h3>Permission role table: <?php if (!$vars['ROLES_TABLE_INSTALLED']): ?>not <?php endif; ?>installed.</h3>
+		<h3>Permission action table: <?php if (!$vars['ACTIONS_TABLE_INSTALLED']): ?>not <?php endif; ?>installed.</h3>
+
+		<?php if (!$vars['ROLES_TABLE_INSTALLED'] && !$vars['ACTIONS_TABLE_INSTALLED']): ?>
+		<br><br>
+		<a href="<?php echo isset($vars['PERM_INSTALL_URL']) ? $vars['PERM_INSTALL_URL'] : '' ?>"><input type="button" value="Install" /></a>
+		<?php endif; ?>
+	</div>
+
+	<div>
+		<h2>Once installed everything, delete the 'install' directory at <?php if(defined('INDEX_ROOT')): echo INDEX_ROOT; endif; ?>public/install</h2>
+	</div>
+
+</div>
+</body>
+</html>

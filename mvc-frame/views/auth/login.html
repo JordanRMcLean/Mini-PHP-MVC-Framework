@@ -1,0 +1,32 @@
+{INCLUDE: header.html}
+
+			{IF: LOGGED_IN}
+				<header>
+					<h2>Welcome {USER_EMAIL}!</h2>
+				</header>
+				<p><a href="{C:INDEX_ROOT}">Click here to go to Index.</a></p>
+			{ELSE:}
+
+				<header>
+					<h2>Log In</h2>
+				</header>
+
+				<p>{ERROR_MESSAGE}</p>
+				<form method="post" action="{FORM_ACTION}">
+					<div class="row">
+						<div class="col-12">
+							<label>Email</label>
+							<input type="text" name="email"{IF: ATTEMPTED_EMAIL} value="{ATTEMPTED_EMAIL}"{/IF} required/>
+						</div>
+						<div class="col-12">
+							<label>Password</label>
+							<input type="password" name="password" required/>
+						</div>
+						<div class="col-12">
+							<input name="submit" type="submit" value="Log In" />
+						</div>
+					</div>
+				</form>
+			{/IF}
+
+{INCLUDE: footer.html}

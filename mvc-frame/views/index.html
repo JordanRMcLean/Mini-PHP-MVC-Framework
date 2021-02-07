@@ -1,0 +1,32 @@
+{INCLUDE: header.html}
+<section>
+<div class="container">
+	<header>
+		<h2>{PAGE_TITLE}</h2>
+	</header>
+
+	<h3>{WELCOME_MESSAGE}</h3>
+
+	<br>
+	<h3>Database connection was {IF: DB_CONNECT_SUCCESS == 'hello'}successful{ELSE:}unsuccessful{/IF}</h3>
+	<br>
+
+	{IF: DEBUG_MODE}<h3>{DB_CONNECT_ERROR}</h3>{/IF}
+
+
+	<div>
+		<h2>Auth:</h2>
+		{IF: LOGGED_IN}
+		<h3>Logged in as: {USER_EMAIL}</h3>
+		<br>
+		<a class="button" href="{C:INDEX_ROOT}auth/logout">Log Out</a>
+		{ELSE:}
+		<h3>Not logged in.</h3>
+		<a class="button" href="{C:INDEX_ROOT}login">Log In</a> | <a class="button" href="{C:INDEX_ROOT}register">Register</a>
+		{/IF}
+	</div>
+
+
+</div>
+</section>
+{INCLUDE: footer.html}

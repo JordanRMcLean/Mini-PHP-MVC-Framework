@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title>{PAGE_TITLE}</title>
+
+	<style type="text/css">
+		body {
+			background: #EEE;
+			color: #555;
+			font-family: sans-serif;
+		}
+		div {
+			width: 70%;
+			margin-left: 15%;
+			text-align: center;
+			margin-top: 20px;
+			border: solid 1px #999;
+			padding: 20px 0;
+		}
+		input {
+			width: 50%;
+			margin: 15px;
+			padding: 10px 2px;
+			display: block;
+			margin-left: 25%;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<header>
+		<h2>{PAGE_TITLE}</h2>
+	</header>
+
+	<div>
+		<h2>Database</h2>
+		<h3>Database connection: {IF: DB_CONNECT}successful{ELSE:}unsuccessful{/IF}</h3>
+		{IF: DEBUG_MODE  && DB_CONNECT_ERROR}<h3>Database error: {DB_CONNECT_ERROR}</h3>{/IF}
+	</div>
+
+	<div>
+		<h2>Auth</h2>
+		<p>Basic auth system with email log in and session storage.</p>
+
+		{IF: AUTH_ERROR_MESSAGE}<h3 style="color:red">{AUTH_ERROR_MESSAGE}</h3>{/IF}
+
+		<h3>Sessions table: {IF: !SESSIONS_TABLE_INSTALLED}not {/IF}installed.</h3>
+		<h3>Users table: {IF: !USERS_TABLE_INSTALLED}not {/IF}installed.</h3>
+
+		{IF: !SESSIONS_TABLE_INSTALLED && !USERS_TABLE_INSTALLED}
+			<form method="post" action="{AUTH_INSTALL_URL}">
+			Admin Email, doesn't have to be real, just used to log in to admin account: <input type="text" name="admin-email" />
+			<br>
+			Admin password, can be anything other than empty, no limitations: <input type="text" name="admin-pass" />
+			<br>
+			<input type="submit" name="submit" value="Install" />
+			</form>
+		{/IF}
+	</div>
+
+	<div>
+		<h2>Permissions</h2>
+		<p>Basic permission system with permission roles defined with allowed actions</p>
+
+		<h3>Permission role table: {IF: !ROLES_TABLE_INSTALLED}not {/IF}installed.</h3>
+		<h3>Permission action table: {IF: !ACTIONS_TABLE_INSTALLED}not {/IF}installed.</h3>
+
+		{IF: !ROLES_TABLE_INSTALLED && !ACTIONS_TABLE_INSTALLED}
+		<br><br>
+		<a href="{PERM_INSTALL_URL}"><input type="button" value="Install" /></a>
+		{/IF}
+	</div>
+
+	<div>
+		<h2>Once installed everything, delete the 'install' directory at {C:INDEX_ROOT}public/install</h2>
+	</div>
+
+</div>
+</body>
+</html>

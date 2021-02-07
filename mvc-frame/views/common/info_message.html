@@ -1,0 +1,17 @@
+{INCLUDE: header.html}
+
+		<div class="container {INFO_BOX_CLASSNAME}">
+			<header>
+				<h2>{PAGE_TITLE}</h2>
+			</header>
+			<p>{INFO_BOX_MESSAGE}</p>
+			{IF: INFO_BOX_LINK_URL && INFO_BOX_LINK_TEXT}
+				<br>
+				<br>
+				<p>
+					<a href="{INFO_BOX_LINK_URL}">{INFO_BOX_LINK_TEXT}</a>
+				</p>
+			{/IF}
+		</div>
+
+{INCLUDE: footer.html}
